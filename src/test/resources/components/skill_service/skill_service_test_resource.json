@@ -1,0 +1,7 @@
+{
+  "id": 1,
+  "name": "Java",
+  "proficiency": 5,
+  "icon": "java_icon",
+  "frontend": false
+}
