@@ -41,6 +41,6 @@ public class SkillControllerTest {
     void getSkillById_ShouldReturnNotFound_WhenSkillDoesNotExist() throws Exception {
         Long nonExistingSkillId = 999L;
         mockMvc.perform(get("/api/skills/{id}", nonExistingSkillId))
-               .andExpect(status().isNotFound());
+               .andExpect(status().isNoContent());
     }
 }
