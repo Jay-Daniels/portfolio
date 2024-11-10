@@ -23,14 +23,14 @@ public class SkillControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    void getAllSkills_ShouldReturnSkills_WhenSkillsExist() throws Exception {
+    void testGetAllSkills() throws Exception {
         mockMvc.perform(get("/api/skills"))
                .andExpect(status().isOk())
                .andExpect(jsonPath("$[0].name").exists());
     }
 
     @Test
-    void getSkillById_ShouldReturnSkill_WhenSkillExists() throws Exception {
+    void testGetSkillById() throws Exception {
         Long existingSkillId = 1L;
         mockMvc.perform(get("/api/skills/{id}", existingSkillId))
                .andExpect(status().isOk())
@@ -38,7 +38,7 @@ public class SkillControllerTest {
     }
 
     @Test
-    void getSkillById_ShouldReturnNotFound_WhenSkillDoesNotExist() throws Exception {
+    void testGetSkillByIdFail() throws Exception {
         Long nonExistingSkillId = 999L;
         mockMvc.perform(get("/api/skills/{id}", nonExistingSkillId))
                .andExpect(status().isNoContent());
