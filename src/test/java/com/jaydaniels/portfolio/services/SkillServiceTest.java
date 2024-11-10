@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -44,37 +44,42 @@ public class SkillServiceTest {
     }
 
     @Test
-    void getAllSkills_ShouldReturnSkills() {
+    void testGetAllSkills() {
         // Mocking the repository's findAll method to return the sample skill
         when(skillRepository.findAll()).thenReturn(List.of(skill));
 
         // Calling the service method and asserting the result
         List<SkillResponse> skills = skillService.getAllSkills();
         assertEquals(1, skills.size());  // Verifying the correct number of skills are returned
-        assertEquals("Java", skills.get(0).getName());  // Verifying the name of the returned skill
+        assertEquals("Java", skills.get(0).name());  // Verifying the name of the returned skill
     }
 
     @Test
-    void getSkillById_ShouldReturnSkill_WhenSkillExists() {
+    void testGetSkillById() {
         Long skillId = 1L;
 
         // Mocking the repository's findById method to return the sample skill
         when(skillRepository.findById(skillId)).thenReturn(Optional.of(skill));
 
         // Calling the service method and asserting the result
-        SkillResponse skillResponse = skillService.getSkillById(skillId);
-        assertEquals(skillId, skillResponse.getId());  // Verifying the returned skill's ID
+        Optional<SkillResponse> skillResponse = skillService.getSkillById(skillId);
+
+        // Verifying that the Optional is present and contains the correct skill ID
+        assertTrue(skillResponse.isPresent(), "Expected skill to be present");
+        assertEquals(skillId, skillResponse.get().id());
     }
 
     @Test
-    void getSkillById_ShouldReturnNull_WhenSkillDoesNotExist() {
+    void testGetSkillByIdFail() {
         Long skillId = 999L;
 
         // Mocking the repository's findById method to return empty for a non-existing skill
         when(skillRepository.findById(skillId)).thenReturn(Optional.empty());
 
         // Calling the service method and asserting the result
-        SkillResponse skillResponse = skillService.getSkillById(skillId);
-        assertNull(skillResponse);  // Verifying that null is returned when the skill doesn't exist
+        Optional<SkillResponse> skillResponse = skillService.getSkillById(skillId);
+
+        // Verifying that the Optional is empty
+        assertTrue(skillResponse.isEmpty(), "Expected skill to be absent");
     }
 }
