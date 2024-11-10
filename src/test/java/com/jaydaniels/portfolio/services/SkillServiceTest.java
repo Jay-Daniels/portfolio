@@ -5,6 +5,7 @@ import com.jaydaniels.portfolio.dto.SkillResponse;
 import com.jaydaniels.portfolio.models.Skill;
 import com.jaydaniels.portfolio.repositories.SkillRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -21,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
+@DisplayName("Test: >SkillService")
 public class SkillServiceTest {
 
     @Mock
@@ -29,13 +31,12 @@ public class SkillServiceTest {
     @InjectMocks
     private SkillService skillService;
 
-    private ObjectMapper objectMapper;
     private Skill skill;
 
     @BeforeEach
     void setUp() throws IOException {
         // Initialize ObjectMapper once for the entire class
-        objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper();
 
         // Load the JSON data from the resource file
         Resource resource = new ClassPathResource("components/skill_service/skill_service_test_resource.json");
