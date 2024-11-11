@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './SkillsDisplay.css';
 
 const SkillsDisplay = () => {
   const [skills, setSkills] = useState<any[]>([]);
@@ -46,7 +47,15 @@ const SkillsDisplay = () => {
                 </div>
               </div>
 
-              <p className="text-xl text-gray-700">Proficiency: {skill.proficiency}</p>
+              {/* Anzeige der Sterne mit Animation */}
+              <img
+                src={`${iconBasePath}stars/stars-${skill.proficiency}.png`}
+                alt={`Proficiency: ${skill.proficiency}`}
+                className="w-28 star-animation"
+                style={{
+                  '--random-delay': `${Math.random() * 2}s`, // Zufällige Verzögerung für subtile Variation
+                }}
+              />
             </div>
           ))}
         </div>
