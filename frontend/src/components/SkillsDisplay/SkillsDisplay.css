@@ -1,23 +1,22 @@
-/* SkillsDisplay.css */
-@keyframes sway {
+@keyframes swayBounce {
   0% {
-    transform: rotate(0deg);
+    transform: translateY(0) rotate(0deg);
   }
-  25% {
-    transform: rotate(2deg);
+  20% {
+    transform: translateY(2px) rotate(2deg); /* Leichtes Bouncen nach oben und Schaukeln */
   }
   50% {
-    transform: rotate(0deg);
+    transform: translateY(0) rotate(0deg); /* Zurück zur Mitte */
   }
-  75% {
-    transform: rotate(-2deg);
+  80% {
+    transform: translateY(2px) rotate(-2deg); /* Leichtes Bouncen nach unten und Schaukeln */
   }
   100% {
-    transform: rotate(0deg);
+    transform: translateY(0) rotate(0deg);
   }
 }
 
 .star-animation {
-  animation: sway 6s ease-in-out infinite;
+  animation: swayBounce 4s ease-in-out infinite;
   animation-delay: var(--random-delay); /* Zufällige Verzögerung für Variation */
 }
