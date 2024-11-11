@@ -22,10 +22,12 @@ const SkillsDisplay = () => {
 
   return (
     <div className="p-5 bg-gray-100 max-w-screen-md mx-auto">
-      <h2 className="text-2xl font-bold mb-4">My Skills</h2>
+      <h2 className="text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-500 mb-5 pb-1">
+        .skills{`{}`}
+      </h2>
 
       {loading ? (
-        <div className="text-center text-xl">Loading...</div>
+        <div className="text-center text-xl text-gray-600">Loading...</div>
       ) : (
         <div className="grid grid-cols-2 gap-4">
           {skills.map((skill, index) => (
@@ -35,8 +37,8 @@ const SkillsDisplay = () => {
                 <img
                   src={`${iconBasePath}${skill.icon}`}
                   alt={skill.name}
-                  className={`w-24 h-16 object-contain transition-transform group-hover:translate-x-24
-                    ${index % 2 === 0 ? 'group-hover:-translate-x-24' : ''}`}
+                  className={`w-24 h-16 object-contain transition-transform
+                    ${index % 2 === 0 ? 'group-hover:-translate-x-24' : 'group-hover:translate-x-24'}`}
                 />
                 {/* Text im Zentrum des Icons */}
                 <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center">
@@ -44,7 +46,7 @@ const SkillsDisplay = () => {
                 </div>
               </div>
 
-              <p className="text-xl font-semibold">Proficiency: {skill.proficiency}</p>
+              <p className="text-xl text-gray-700">Proficiency: {skill.proficiency}</p>
             </div>
           ))}
         </div>
