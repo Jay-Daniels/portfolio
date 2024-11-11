@@ -20,7 +20,7 @@ This portfolio website is designed to showcase my skills and projects, offering 
 - **Version Control:** Git, GitHub
 - **Build Tool:** Maven
 - **Styling:** Tailwind CSS
-- **Documentation:** Swagger (optional)
+- **Documentation:** Swagger
 
 ## Installation
 
