@@ -1,50 +1,63 @@
-# React + TypeScript + Vite
+# Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for the portfolio project. It is a React-based web application developed with Tailwind CSS for styling and Vite for build management.
 
-Currently, two official plugins are available:
+## Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** (Frontend Framework)
+- **Vite** (Build Tool)
+- **Tailwind CSS** (CSS Framework)
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Clone the repository**:
 
-- Configure the top-level `parserOptions` property like this:
+    ```bash
+    git clone <repository-url>
+    cd <repository-directory>
+    ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+2. **Install dependencies**:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+    Make sure you have `Node.js` and either `npm` or `yarn` installed. Then install the dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+3. **Start the development server**:
+
+    To run the app locally, execute the following command:
+
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+
+    This will start the local development server and open the app in the browser. By default, the app will be accessible at `http://localhost:3000`.
+
+## Project Structure
+
+- `src/`: The main code of the application.
+  - `components/`: Contains reusable components.
+  - `assets/`: Static assets such as images and icons.
+  - `styles/`: Tailwind CSS and custom CSS files.
+- `public/`: Static files that are served directly, such as `index.html`.
+- `tailwind.config.js`: Tailwind CSS configuration.
+
+## Development
+
+- **Tailwind CSS**: All styles are created using Tailwind CSS classes. You can modify the default Tailwind configuration in the `tailwind.config.js` file.
+- **React Components**: The UI is divided into reusable React components located in the `src/components/` folder.
+
+## Deployment
+
+For deployment, you can upload the application to platforms like Vercel or Netlify. Simply create the production build with:
+
+```bash
+npm run build
+# or
+yarn build
