@@ -24,9 +24,9 @@ const SkillsDisplay = () => {
   const iconBasePath = '/components/skills-display/icons/';
 
   return (
-    <div className="p-5 bg-gray-100 max-w-screen-md mx-auto">
+    <div className="skills-container p-5 max-w-screen-md mx-auto">
       <h2 className="text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-500 to-green-400 mb-5 pb-1 inline-block">
-        .technical_skills{`{}`}
+        .technical.skills{`{}`}
       </h2>
 
       {loading ? (
@@ -34,9 +34,9 @@ const SkillsDisplay = () => {
       ) : (
         <>
           {/* Grid für die Skills */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 bg-black bg-opacity-0 rounded-lg">
             {skills.map((skill, index) => (
-              <div key={skill.id} className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center space-y-4 relative">
+              <div key={skill.id} className="bg-black bg-opacity-30 p-4 rounded-lg flex flex-col items-center space-y-4 relative">
                 {/* Wrapper für das Icon */}
                 <div className="relative group">
                   <img

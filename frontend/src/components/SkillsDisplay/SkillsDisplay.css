@@ -20,3 +20,9 @@
   animation: swayBounce 4s ease-in-out infinite;
   animation-delay: var(--random-delay); /* Zufällige Verzögerung für Variation */
 }
+
+.skills-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 6rem;
+  line-height: 1.2;
+}

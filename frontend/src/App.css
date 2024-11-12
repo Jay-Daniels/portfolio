@@ -1,42 +1,44 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Allgemeine App-Styles */
+.App {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom right, #121212, #2c0a3d); /* Dunkelgrau zu einem subtileren Dunkellila */  color: white;
+  height: 100%; /* Höhe für den gesamten Viewport */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
+  overflow-y: auto; /* Ermöglicht vertikales Scrollen */
+  position: relative; /* Damit die Sektionen im Z-Index nach oben verschoben werden können */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Sektionen */
+.section {
+  padding: 0px 20px;
+  min-height: 100vh; /* Jede Sektion mindestens die Höhe des Viewports */
+  opacity: 0; /* Anfangs ausgeblendet */
+  position: relative;
+  z-index: 1; /* Sicherstellen, dass der Hintergrund hinter den Sektionen bleibt */
+  transition: opacity 1s ease; /* Nur die Opazität der Sektionen ändern */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Um die Sektionen bei Eintritt in den Viewport sichtbar zu machen */
+.section.visible {
+  opacity: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Styling der spezifischen Sektionen */
+.profile-section, .skills-section {
+  position: relative;
+  z-index: 2; /* Sektionen bleiben immer oben */
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.profile-section::before, .skills-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: -1; /* Sorgt dafür, dass diese Highlights unterhalb des Inhalts liegen */
 }
