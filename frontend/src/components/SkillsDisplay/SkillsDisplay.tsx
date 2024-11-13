@@ -26,7 +26,7 @@ const SkillsDisplay = () => {
   return (
     <div className="skills-container lg:min-h-[1080px] min-h-screen p-5 max-w-screen-md mx-auto">
       <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-500 to-green-400 mb-4">
-        .my.skills{`{}`}
+        .Skills
       </h2>
 
       {loading ? (
