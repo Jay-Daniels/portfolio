@@ -17,7 +17,7 @@ const App = () => {
         }
       });
     }, {
-      threshold: 0.45, // Trigger, wenn 50% der Sektion sichtbar sind
+      threshold: 0.30, // Trigger, wenn 25% der Sektion sichtbar sind
     });
 
     // Wenden Sie den Observer auf die Sektionen an

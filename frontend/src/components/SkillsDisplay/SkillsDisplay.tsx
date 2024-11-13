@@ -24,9 +24,9 @@ const SkillsDisplay = () => {
   const iconBasePath = '/components/skills-display/icons/';
 
   return (
-    <div className="skills-container p-5 max-w-screen-md mx-auto">
-      <h2 className="text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-500 to-green-400 mb-5 pb-1 inline-block">
-        .technical.skills{`{}`}
+    <div className="skills-container lg:min-h-[1080px] min-h-screen p-5 max-w-screen-md mx-auto">
+      <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-500 to-green-400 mb-4">
+        .my.skills{`{}`}
       </h2>
 
       {loading ? (
@@ -43,23 +43,31 @@ const SkillsDisplay = () => {
                     src={`${iconBasePath}${skill.icon}`}
                     alt={skill.name}
                     className={`w-24 h-16 object-contain transition-transform
-                      ${index % 2 === 0 ? 'group-hover:-translate-x-24' : 'group-hover:translate-x-24'}`}
+                      ${index % 2 === 0 ? 'lg:group-hover:-translate-x-24' : 'lg:group-hover:translate-x-24'}
+                      group-hover:translate-x-0`} // Hover-Effekt nur auf größeren Geräten aktiv
                   />
-                  {/* Text im Zentrum des Icons */}
-                  <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center">
-                    <p className="text-lg font-semibold">{skill.name}</p>
+                  {/* Text im Zentrum des Icons nur auf großen Geräten */}
+                  <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 opacity-0 lg:group-hover:opacity-100 transition-opacity">
+                    <p className="text-center text-lg font-semibold">{skill.name}</p>
                   </div>
                 </div>
 
+                {/* Text unter dem Icon für mobile Geräte */}
+                <div className="text-center text-lg font-semibold lg:hidden">
+                  {skill.name}
+                </div>
+
                 {/* Anzeige der Sterne mit Animation */}
+                <div className="flex w-28 h-3">
                 <img
                   src={`${iconBasePath}stars/stars-${skill.proficiency}.png`}
                   alt={`Proficiency: ${skill.proficiency}`}
-                  className={`w-28 ${animateStars ? 'star-animation' : ''}`} // Animation an/aus
+                  className={`absolute bottom-2 w-28 ${animateStars ? 'star-animation' : ''}`} // Animation an/aus
                   style={{
                     '--random-delay': `${Math.random() * 2}s`, // Zufällige Verzögerung für subtile Variation
                   }}
                 />
+                </div>
               </div>
             ))}
           </div>

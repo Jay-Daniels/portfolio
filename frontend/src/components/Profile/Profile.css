@@ -2,57 +2,50 @@
 
 .profile-container {
   border-radius: 8px;
-  padding: 1.25rem; /* Etwas Platz rund um den Container */
 }
 
 .profile-container img {
-  border-radius: 50%; /* Rundes Profilbild */
+  border-radius: 50%;
 }
 
 .profile-container h2 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 6rem;
   line-height: 1.2;
 }
 
 .profile-container p {
   font-family: 'Merriweather', serif;
-  font-size: 1.125rem;
   line-height: 1.6;
   color: #4a5568;
 }
 
 .profile-description {
   background-color: #f0f4f8;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
 .profile-description p {
-  position: relative;
-  margin-left: 2em;
-  margin-right: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
-/* Positionierung der Anführungszeichen */
 .profile-description::before,
 .profile-description::after {
   content: '"';
   position: absolute;
-  font-size: 10rem;
+  font-size: 8rem;
   color: #4a5568;
   font-family: 'Dancing Script', cursive;
 }
 
 .profile-description::before {
   top: -2rem; /* Positionierung oben links */
-  left: -1rem;
+  left: -0.5rem;
 }
 
 .profile-description::after {
-  bottom: -9rem; /* Positionierung unten rechts */
+  bottom: -7.5rem; /* Positionierung unten rechts */
   right: 1.5rem;
 }
 
@@ -66,7 +59,6 @@
   animation: blink 0.7s step-end infinite;
 }
 
-/* Cursor blinking effect */
 @keyframes blink {
   50% {
     background-color: transparent;

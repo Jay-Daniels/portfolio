@@ -31,70 +31,61 @@ const Profile = () => {
 
   useEffect(() => {
     let typingInterval: NodeJS.Timeout;
-
     const texts = profile ? [profile.name, 'Developer'] : [''];
 
     const handleTypingEffect = () => {
       const currentText = texts[alternator ? 0 : 1];
 
-      // Wenn wir tippen
       if (isTyping && textIndex < currentText.length) {
         setDisplayText((prev) => prev + currentText.charAt(textIndex));
         setTextIndex((prev) => prev + 1);
-      }
-      // Wenn wir löschen
-      else if (isDeleting && textIndex > 0) {
+      } else if (isDeleting && textIndex > 0) {
         setDisplayText((prev) => prev.slice(0, -1));
         setTextIndex((prev) => prev - 1);
-      }
-      // Wenn der Text vollständig getippt wurde
-      else if (isTyping && textIndex === currentText.length) {
+      } else if (isTyping && textIndex === currentText.length) {
         setIsTyping(false);
         setTimeout(() => {
           setIsDeleting(true);
-        }, pauseBeforeDelete); // Pause nach dem Tippen, bevor wir löschen
-      }
-      // Wenn der Text vollständig gelöscht wurde
-      else if (isDeleting && textIndex === 0) {
+        }, pauseBeforeDelete);
+      } else if (isDeleting && textIndex === 0) {
         setIsDeleting(false);
-        setAlternator(!alternator); // Wechsel zum nächsten Text
-        setTextIndex(0); // Text-Index zurücksetzen
-        setDisplayText(''); // Text zurücksetzen
-        setIsTyping(true); // Typen neu starten
+        setAlternator(!alternator);
+        setTextIndex(0);
+        setDisplayText('');
+        setIsTyping(true);
       }
     };
 
-    // Verwende konstanten Timeout für das Tippen und Löschen
     typingInterval = setInterval(handleTypingEffect, isTyping ? typingSpeed : deletingSpeed);
 
     return () => clearInterval(typingInterval);
   }, [profile, textIndex, isTyping, isDeleting, alternator]);
 
   return (
-    <div className="profile-container min-h-screen flex items-center justify-center">
+    <div className="profile-container lg:min-h-[1080px] min-h-screen flex items-center justify-center p-4">
       {loading ? (
         <div className="text-gray-600">Loading...</div>
       ) : (
-        <div className="flex justify-center items-center space-x-8">
+        <div className="flex flex-col lg:flex-row items-center lg:space-x-8 space-y-8 lg:space-y-0">
           {/* Bild Sektion */}
-          <div className="w-80 h-80 rounded-full overflow-hidden">
-            <img src={profile.picture} alt="Profile" />
+          <div className="w-60 h-60 md:w-80 md:h-80 rounded-full overflow-hidden">
+            <img src={profile.picture} alt="Profile" className="w-full h-full object-cover" />
           </div>
 
           {/* Text Sektion */}
-          <div className="max-w-3xl">
-              <h2 className="text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-500 to-green-400 mb-4">
-                Hi, I'm
-                <br />
-                <span className="text-wrapper">
-                  <span className="profile-name">{displayText}</span>
-                </span>
-                <span className="cursor"></span>
-              </h2>
+          <div className="text-center lg:text-left max-w-full lg:max-w-3xl">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-500 to-green-400 mb-4">
+              Hi, I'm
+              <br />
+              <span className="text-wrapper">
+                <span className="profile-name">{displayText}</span>
+              </span>
+              <span className="cursor"></span>
+            </h2>
 
-            {/* Description Box mit beschränkter Breite */}
-            <div className="profile-description p-6 rounded-lg shadow-md">
-              <p className="text-lg text-gray-700">{profile.description}</p>
+            {/* Description Box */}
+            <div className="profile-description p-4 md:p-6 rounded-3xl shadow-md max-w-full md:max-w-2xl mx-auto lg:mx-0 text-center">
+              <p className="text-base sm:text-lg md:text-xl text-gray-700">{profile.description}</p>
             </div>
           </div>
         </div>

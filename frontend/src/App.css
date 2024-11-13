@@ -3,8 +3,6 @@
   font-family: 'Arial', sans-serif;
   background: linear-gradient(to bottom right, #121212, #2c0a3d); /* Dunkelgrau zu einem subtileren Dunkellila */  color: white;
   height: 100%; /* Höhe für den gesamten Viewport */
-  margin: 0;
-  padding: 0;
   overflow-x: hidden; /* Verhindert horizontales Scrollen */
   overflow-y: auto; /* Ermöglicht vertikales Scrollen */
   position: relative; /* Damit die Sektionen im Z-Index nach oben verschoben werden können */
@@ -13,7 +11,7 @@
 /* Sektionen */
 .section {
   padding: 0px 20px;
-  min-height: 100vh; /* Jede Sektion mindestens die Höhe des Viewports */
+  /*min-height: 100vh; /* Jede Sektion mindestens die Höhe des Viewports */
   opacity: 0; /* Anfangs ausgeblendet */
   position: relative;
   z-index: 1; /* Sicherstellen, dass der Hintergrund hinter den Sektionen bleibt */
@@ -32,7 +30,6 @@
 }
 
 .profile-section::before, .skills-section::before {
-  content: '';
   position: absolute;
   top: 0;
   left: 0;
