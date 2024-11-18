@@ -44,7 +44,10 @@ public class SkillControllerTest {
         // Assertions
         assertNotNull(skillResponses);
         assertTrue(skillResponses.length > 0);
-        assertNotNull(skillResponses[0].name());
+        assertEquals(skillResponses[0].name(),"Java");
+        assertEquals(skillResponses[0].icon(),"java-icon.png");
+        assertEquals(skillResponses[0].proficiency(),4);
+        assertFalse(skillResponses[0].isFrontend());
     }
 
     @Test
@@ -62,6 +65,10 @@ public class SkillControllerTest {
         // Assertions
         assertNotNull(skillResponse);
         assertEquals(existingSkillId, skillResponse.id());
+        assertEquals(skillResponse.name(),"Java");
+        assertEquals(skillResponse.icon(),"java-icon.png");
+        assertEquals(skillResponse.proficiency(),4);
+        assertFalse(skillResponse.isFrontend());
     }
 
     @Test
