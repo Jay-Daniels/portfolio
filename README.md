@@ -1,5 +1,21 @@
-
 # Portfolio Project
+
+## Table of Contents
+
+- [Description](#description)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+  - [Backend Setup](#backend-setup)
+  - [Frontend Setup](#frontend-setup)
+- [Testing](#testing)
+  - [Backend Testing](#backend-testing)
+  - [Frontend Testing](#frontend-testing)
+- [Components](#components)
+  - [Header Component](#header-component)
+  - [Profile Component](#profile-component)
+  - [Skills Component](#skills-component)
+- [License](#license)
 
 ## Description
 
@@ -10,7 +26,9 @@ This portfolio website is designed to showcase my skills and projects, offering 
 - **Reusable Components:** The website is built around reusable components, making it modular and easy to maintain. Each component can be reused throughout the site for consistent design and functionality.
 - **Code Insights:** On hover, each component reveals a button linking directly to its source code on GitHub, allowing employers to easily explore the underlying code.
 - **Components:**
-    - **Skills Component:** Displays the technologies I have acquired, with their proficiency levels visible. These proficiency levels are based on my self-assessment. The icons for these technologies slide to the side on hover to reveal the corresponding name of the technology.
+    - **Header Component:** A information header that dynamically generates GitHub links for frontend, backend, and test files, including a dropdown menu for easy access. [Read more](#header-component)
+    - **Profile Component:** First point of contact, offers a profile picture, headline and quick introductory text. [Read more](#profile-component)
+    - **Skills Component:** Displays the technologies I have acquired, with their proficiency levels visible. These proficiency levels are based on my self-assessment. The icons for these technologies slide to the side on hover to reveal the corresponding name of the technology. [Read more](#skills-component)
 
 ## Tech Stack
 
@@ -43,6 +61,12 @@ This portfolio website is designed to showcase my skills and projects, offering 
     ```bash
     mvn spring-boot:run
     ```
+    
+- Build and run (Make sure you have Java 17+ installed):
+
+    ```bash
+    mvn clean install spring-boot:run
+    ```
 
 ### Frontend Setup:
 
@@ -61,7 +85,7 @@ This portfolio website is designed to showcase my skills and projects, offering 
 - Start the development server:
 
     ```bash
-    npm start
+    npm run dev
     ```
 
 ## Testing
@@ -81,6 +105,29 @@ This portfolio website is designed to showcase my skills and projects, offering 
     ```bash
     npm test
     ```
+
+## Components
+
+### Header Component
+
+The `Header` component is a navigation and information header used in the portfolio website. It displays the current active section of the page and dynamically generates GitHub links for frontend, backend, and unit test files based on the active section's attributes. It also includes a dropdown menu to display these links, which can be toggled by the user.
+
+#### Key Features:
+- Displays navigation links to various sections of the portfolio.
+- Generates GitHub links for frontend, backend, and tests dynamically.
+- Dropdown menu for GitHub links.
+
+### Profile Component
+
+**(Placeholder for Profile Component documentation)**
+
+### Skills Component
+
+The `Skills` component showcases the technologies I have learned, with proficiency levels displayed through icons. Hovering over each icon reveals the name of the technology.
+
+#### Key Features:
+- Displays technologies with proficiency levels.
+- Hovering over icons reveals the name of the technology.
 
 ## License
 
