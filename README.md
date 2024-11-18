@@ -110,16 +110,21 @@ This portfolio website is designed to showcase my skills and projects, offering 
 
 ### Header Component
 
-The `Header` component is a navigation and information header used in the portfolio website. It displays the current active section of the page and dynamically generates GitHub links for frontend, backend, and unit test files based on the active section's attributes. It also includes a dropdown menu to display these links, which can be toggled by the user.
+The `Header` component is a information header used in the portfolio website. It displays the current active section of the page and dynamically generates GitHub links for frontend, backend, and unit test files based on the active section's attributes. It also includes a dropdown menu to display these links, which can be toggled by the user.
 
 #### Key Features:
-- Displays navigation links to various sections of the portfolio.
+- Displays current section / component name based on section attributes.
 - Generates GitHub links for frontend, backend, and tests dynamically.
 - Dropdown menu for GitHub links.
 
 ### Profile Component
 
-**(Placeholder for Profile Component documentation)**
+The `Profile` component features a profile picture, an animated heading with a typewriter effect, and a text bubble for introductory text. This component introduces the user in a visually engaging way, where the typewriter animation adds a dynamic touch to the profile header, and the text bubble provides space for a brief description or introduction.
+
+#### Key Features:
+- Displays Profile picture.
+- Animated headline with a type-writer effect that can be adjusted.
+- Offers space in a description text-bubble.
 
 ### Skills Component
 
