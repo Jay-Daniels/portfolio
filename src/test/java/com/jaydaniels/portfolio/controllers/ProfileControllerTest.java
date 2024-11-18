@@ -2,6 +2,7 @@ package com.jaydaniels.portfolio.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jaydaniels.portfolio.dto.ProfileResponse;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -44,7 +45,7 @@ public class ProfileControllerTest {
         // Assertions
         assertNotNull(profileResponse);
         assertEquals("Jay Daniels", profileResponse.name());
-        assertTrue(profileResponse.description().startsWith("Lorem Ipsum."));
+        assertTrue(StringUtils.startsWith("Lorem Ipsum.", profileResponse.description()));
         assertEquals("/components/profile/profile.png", profileResponse.picture());
     }
 }
