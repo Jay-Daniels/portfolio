@@ -45,7 +45,7 @@ public class ProfileControllerTest {
         // Assertions
         assertNotNull(profileResponse);
         assertEquals("Jay Daniels", profileResponse.name());
-        assertTrue(StringUtils.startsWith("Lorem Ipsum.", profileResponse.description()));
+        assertTrue(profileResponse.description().startsWith("Lorem Ipsum."));
         assertEquals("/components/profile/profile.png", profileResponse.picture());
     }
 }
