@@ -6,7 +6,7 @@ import './SkillsDisplay.css';
 const SkillsDisplay = () => {
   const [skills, setSkills] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [animateStars, setAnimateStars] = useState<boolean>(true); // Neuer State für die Animation
+  const [animateStars, setAnimateStars] = useState<boolean>(true);
 
   useEffect(() => {
     axios
@@ -64,7 +64,7 @@ const SkillsDisplay = () => {
                   alt={`Proficiency: ${skill.proficiency}`}
                   className={`absolute bottom-2 w-28 ${animateStars ? 'star-animation' : ''}`} // Animation an/aus
                   style={{
-                    '--random-delay': `${Math.random() * 2}s`, // Zufällige Verzögerung für subtile Variation
+                    '--random-delay': `${Math.random() * 2}s`,
                   }}
                 />
                 </div>

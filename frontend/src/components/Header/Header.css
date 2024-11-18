@@ -1,0 +1,30 @@
+/* Header.css */
+.header {
+  z-index: 1000;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.menu-dropdown {
+  display: block;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Zusätzliche Styling-Optionen */
+header {
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+}
+
+header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
