@@ -62,7 +62,7 @@ const Profile = () => {
   }, [profile, textIndex, isTyping, isDeleting, alternator]);
 
   return (
-    <div className="profile-container lg:min-h-[1080px] min-h-screen flex items-center justify-center p-4">
+    <div className="profile-container lg:min-h-[1080px] min-h-screen flex items-center justify-center p-4 pt-36 lg:pt-0">
       {loading ? (
         <div className="text-gray-600">Loading...</div>
       ) : (
