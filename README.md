@@ -24,7 +24,7 @@ This portfolio website is designed to showcase my skills and projects, offering 
 ## Features
 
 - **Reusable Components:** The website is built around reusable components, making it modular and easy to maintain. Each component can be reused throughout the site for consistent design and functionality.
-- **Code Insights:** On hover, each component reveals a button linking directly to its source code on GitHub, allowing employers to easily explore the underlying code.
+- **Code Insights:** The title bar reveals a button linking directly to the source code for each component on GitHub, allowing visitors to easily explore the underlying code.
 - **Components:**
     - **Header Component:** A information header that dynamically generates GitHub links for frontend, backend, and test files, including a dropdown menu for easy access. [Read more](#header-component)
     - **Profile Component:** First point of contact, offers a profile picture, headline and quick introductory text. [Read more](#profile-component)
